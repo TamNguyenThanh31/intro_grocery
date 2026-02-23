@@ -10,6 +10,32 @@ document.addEventListener('DOMContentLoaded', () => {
         yearSpan.textContent = new Date().getFullYear();
     }
 
+    // 2. Dynamic store open/closed status badge
+    const OPEN_HOUR = 7;   // 07:00
+    const CLOSE_HOUR = 22; // 22:00
+
+    function updateStoreStatus() {
+        const dot = document.getElementById('store-status-dot');
+        const text = document.getElementById('store-status-text');
+        if (!dot || !text) return;
+
+        const now = new Date();
+        const currentHour = now.getHours();
+        const isOpen = currentHour >= OPEN_HOUR && currentHour < CLOSE_HOUR;
+
+        if (isOpen) {
+            dot.style.color = '#4caf50';        // Green
+            text.textContent = 'Đang mở cửa';
+        } else {
+            dot.style.color = '#f44336';        // Red
+            text.textContent = 'Đã đóng cửa';
+        }
+    }
+
+    // Run immediately and then every 60 seconds
+    updateStoreStatus();
+    setInterval(updateStoreStatus, 60000);
+
     // 2. Header background change on scroll
     const header = document.querySelector('.header');
     
