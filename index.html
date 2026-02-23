@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tạp hoá Toàn Lương - Tiện lợi, Đầy đủ & Gần gũi</title>
+    <meta name="description"
+        content="Tạp hoá Toàn Lương tại 110 Phú Xá, Thái Nguyên. Cung cấp đa dạng đồ gia dụng, bánh kẹo, đồ ăn vặt phục vụ bà con khu vực.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Header Navigation -->
+    <header class="header">
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <i class="fa-solid fa-store"></i> TOÀN LƯƠNG
+            </a>
+
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="#home" class="nav-link">Trang chủ</a></li>
+                    <li><a href="#categories" class="nav-link">Danh mục</a></li>
+                    <li><a href="#about" class="nav-link">Giới thiệu</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-contact">
+                <a href="tel:0917505049" class="btn btn-primary pulse">
+                    <i class="fa-solid fa-phone-volume"></i> 0917 50 50 49
+                </a>
+                <button class="mobile-menu-btn" aria-label="Menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section - Split Layout -->
+        <section id="home" class="hero">
+            <!-- Left Panel: Solid green background with clear text -->
+            <div class="hero-left">
+                <span class="hero-tag">Chào mừng bạn đến với</span>
+                <h1 class="hero-title">Tạp hoá<br>Toàn Lương</h1>
+                <p class="hero-subtitle">Tiện lợi · Đầy đủ · Gần gũi cho Mọi Nhà</p>
+
+                <div class="hero-info-list">
+                    <div class="hero-info-item">
+                        <div class="hero-info-icon"><i class="fa-regular fa-clock"></i></div>
+                        <div>
+                            <div class="hero-info-label">Giờ mở cửa</div>
+                            <div class="hero-info-value">07:00 – 22:00 mỗi ngày</div>
+                        </div>
+                    </div>
+                    <div class="hero-info-item">
+                        <div class="hero-info-icon"><i class="fa-solid fa-location-dot"></i></div>
+                        <div>
+                            <div class="hero-info-label">Địa chỉ</div>
+                            <div class="hero-info-value">110 Phú Xá, Thái Nguyên</div>
+                        </div>
+                    </div>
+                    <div class="hero-info-item">
+                        <div class="hero-info-icon"><i class="fa-solid fa-phone"></i></div>
+                        <div>
+                            <div class="hero-info-label">Liên hệ</div>
+                            <div class="hero-info-value">0917 50 50 49</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-buttons">
+                    <a href="tel:0917505049" class="btn btn-white">
+                        <i class="fa-solid fa-phone-volume"></i> Gọi ngay
+                    </a>
+                    <a href="#contact" class="btn btn-outline-white">
+                        Xem bản đồ <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right Panel: Store image only -->
+            <div class="hero-right">
+                <div class="hero-image-overlay"></div>
+                <div class="hero-open-badge">
+                    <i class="fa-solid fa-circle" style="color:#4caf50; font-size:10px;"></i>
+                    &nbsp;Đang mở cửa
+                </div>
+            </div>
+        </section>
+
+        <!-- Categories Section -->
+        <section id="categories" class="section categories-section">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2 class="section-title">Chúng Tôi Có Gì?</h2>
+                    <p class="section-desc">Đa dạng mặt hàng thiết yếu phục vụ đời sống hàng ngày của gia đình bạn.</p>
+                </div>
+
+                <div class="categories-grid">
+                    <!-- Category 1 -->
+                    <div class="category-card">
+                        <div class="category-icon-wrapper cream-bg">
+                            <i class="fa-solid fa-kitchen-set"></i>
+                        </div>
+                        <h3 class="category-name">Đồ Gia Dụng</h3>
+                        <p class="category-detail">Chén bát, chổi mồi, các vật dụng nhà bếp, đồ nhựa tiện ích...</p>
+                    </div>
+
+                    <!-- Category 2 -->
+                    <div class="category-card">
+                        <div class="category-icon-wrapper orange-bg">
+                            <i class="fa-solid fa-cookie-bite"></i>
+                        </div>
+                        <h3 class="category-name">Bánh Kẹo & Ăn Vặt</h3>
+                        <p class="category-detail">Đa dạng các loại snack, bánh kẹo, đồ ăn vặt cho mọi lứa tuổi.</p>
+                    </div>
+
+                    <!-- Category 3 -->
+                    <div class="category-card">
+                        <div class="category-icon-wrapper green-bg">
+                            <i class="fa-solid fa-bottle-water"></i>
+                        </div>
+                        <h3 class="category-name">Đồ Uống</h3>
+                        <p class="category-detail">Nước giải khát, nước tinh khiết, các loại đồ uống đóng chai.</p>
+                    </div>
+
+                    <!-- Category 4 -->
+                    <div class="category-card">
+                        <div class="category-icon-wrapper blue-bg">
+                            <i class="fa-solid fa-basket-shopping"></i>
+                        </div>
+                        <h3 class="category-name">Tạp Hoá Tổng Hợp</h3>
+                        <p class="category-detail">Gia vị, đồ khô, đồ dùng cá nhân và các nhu yếu phẩm thiết yếu khác.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section about-section bg-light">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-content">
+                        <span class="badge badge-green">Về Chúng Tôi</span>
+                        <h2 class="section-title mt-2">Điểm Mua Sắm Rộng Rãi & Đầy Đủ</h2>
+                        <p class="about-text">
+                            Không chỉ là một tiệm tạp hoá nhỏ lẻ, <strong>Toàn Lương</strong> tự hào mang đến không gian
+                            mua sắm rộng rãi <strong>gấp 2-3 lần</strong> các cửa hàng tiện lợi thông thường.
+                        </p>
+                        <p class="about-text">
+                            Với lối đi thoáng đãng, hàng hoá được sắp xếp gọn gàng, chúng tôi phục vụ tận tâm, mang lại
+                            mức giá phải chăng nhất cho bà con khu vực Phú Xá, các bạn học sinh, sinh viên và các chủ
+                            quán ăn trong khu vực.
+                        </p>
+                        <ul class="feature-list">
+                            <li><i class="fa-solid fa-check text-green"></i> Không gian rộng rãi, dễ dàng tìm kiếm đồ.
+                            </li>
+                            <li><i class="fa-solid fa-check text-green"></i> Giá cả bình dân, phù hợp với mọi nhà.</li>
+                            <li><i class="fa-solid fa-check text-green"></i> Đa dạng mặt hàng, đặc biệt là đồ gia dụng.
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="about-image-wrapper">
+                        <!-- Placeholder for a real image, using a generic pattern for now -->
+                        <div class="placeholder-image">
+                            <i class="fa-solid fa-shop"></i>
+                            <span>Hình ảnh cửa hàng rộng rãi</span>
+                        </div>
+                        <div class="experience-badge">
+                            <span class="exp-text">Phục vụ tận tâm</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact / Map Section -->
+        <section id="contact" class="section contact-section">
+            <div class="container">
+                <div class="contact-card">
+                    <div class="contact-info">
+                        <h2 class="section-title text-white">Ghé Thăm Cửa Hàng</h2>
+                        <p class="text-white-50">Chúng tôi luôn sẵn sàng phục vụ bạn từ sáng sớm đến tối muộn.</p>
+
+                        <div class="contact-details mt-4">
+                            <div class="contact-item">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <div>
+                                    <h4>Địa chỉ</h4>
+                                    <p>Số nhà 110, Đường Phú Xá, Tỉnh Thái Nguyên</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fa-solid fa-phone"></i>
+                                <div>
+                                    <h4>Điện thoại liên hệ</h4>
+                                    <p class="phone-number">0917 50 50 49</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fa-solid fa-clock"></i>
+                                <div>
+                                    <h4>Giờ mở cửa</h4>
+                                    <p>Thứ 2 - Chủ Nhật: 07:00 - 22:00</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a href="tel:0917505049" class="btn btn-accent btn-large mt-4 w-100 text-center">
+                            <i class="fa-solid fa-phone-volume"></i> Gọi Cho Chúng Tôi Ngay
+                        </a>
+                    </div>
+                    <div class="contact-map">
+                        <!-- Google Maps - Tạp hóa Toàn Lương actual location -->
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.577!2d105.8527863!3d21.5555248!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31352727e3de73ab%3A0x88ff3f13c4c4c789!2zVOG6oXAgaMOzYSBUb8Odo24gTMaw4budbmc!5e0!3m2!1svi!2s!4v1740000000000!5m2!1svi!2s"
+                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container text-center">
+            <div class="footer-logo mb-3">
+                <i class="fa-solid fa-store"></i> TOÀN LƯƠNG
+            </div>
+            <p class="footer-msg">Cảm ơn quý khách đã tin tưởng và ủng hộ Tạp hoá Toàn Lương!</p>
+            <div class="footer-bottom">
+                &copy; <span id="current-year"></span> Tạp hoá Toàn Lương. Thay mặt gia đình xin cảm ơn.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+
+</html>
