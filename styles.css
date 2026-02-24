@@ -761,6 +761,55 @@ img {
     font-size: 14px;
 }
 
+/* --- Mobile Nav Menu --- */
+.nav {
+    transition: all 0.3s ease;
+}
+
+.nav.nav-open {
+    display: block !important;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-lg);
+    padding: 20px 0;
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.nav.nav-open .nav-list {
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+}
+
+.nav.nav-open .nav-link {
+    display: block;
+    padding: 14px 20px;
+    font-size: 17px;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.nav.nav-open .nav-link:hover {
+    background-color: var(--secondary-color);
+}
+
 /* --- Responsive Design --- */
 @media (max-width: 992px) {
     .about-grid {
@@ -775,9 +824,15 @@ img {
         height: 350px;
     }
 
+    /* Keep experience badge inside image bounds */
+    .about-image-wrapper {
+        overflow: hidden;
+        position: relative;
+    }
+
     .experience-badge {
-        bottom: 20px;
-        right: 20px;
+        bottom: 10px;
+        right: 10px;
     }
 }
 
@@ -786,6 +841,7 @@ img {
         --section-padding: 60px 0;
     }
 
+    /* Hide nav by default on mobile, toggled via JS */
     .nav {
         display: none;
     }
@@ -821,6 +877,33 @@ img {
     .contact-info {
         padding: 40px 20px;
     }
+
+    /* About section image fix */
+    .about-image-wrapper {
+        overflow: hidden;
+    }
+
+    .placeholder-image {
+        font-size: 48px;
+    }
+
+    .experience-badge {
+        width: 90px;
+        height: 90px;
+        font-size: 14px;
+        bottom: 5px;
+        right: 5px;
+        border-width: 5px;
+    }
+
+    /* Contact section improvements */
+    .contact-card {
+        transform: translateY(0);
+    }
+
+    .contact-section {
+        padding: 40px 0;
+    }
 }
 
 @media (max-width: 480px) {
@@ -831,6 +914,30 @@ img {
 
     .hero-title {
         font-size: 36px;
+    }
+
+    .hero-info-list {
+        padding: 20px;
+    }
+
+    .hero-info-value {
+        font-size: 15px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .experience-badge {
+        width: 75px;
+        height: 75px;
+        font-size: 12px;
+        border-width: 4px;
     }
 }
 
@@ -881,7 +988,7 @@ img {
 /* Subtle hover lift enhancement for animated cards */
 .category-card {
     transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                box-shadow 0.4s ease;
+        box-shadow 0.4s ease;
 }
 
 /* Contact card smooth shadow on scroll reveal */

@@ -85,12 +85,34 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ============================================================
-    // 5. Mobile Menu Toggle Placeholder
+    // 5. Mobile Menu Toggle
     // ============================================================
     const mobileBtn = document.querySelector('.mobile-menu-btn');
-    if (mobileBtn) {
+    const nav = document.querySelector('.nav');
+
+    if (mobileBtn && nav) {
         mobileBtn.addEventListener('click', () => {
-            alert('Menu đang được nâng cấp! Vui lòng vuốt xuống để xem thêm thông tin.');
+            nav.classList.toggle('nav-open');
+
+            // Toggle icon between bars and X
+            const icon = mobileBtn.querySelector('i');
+            if (nav.classList.contains('nav-open')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            } else {
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Close menu when a nav link is clicked
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('nav-open');
+                const icon = mobileBtn.querySelector('i');
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            });
         });
     }
 
@@ -225,59 +247,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ============================================================
-    // 12. GSAP ScrollTrigger - Contact section map reveal
-    // ============================================================
-    const contactMap = document.querySelector('.contact-map');
-    if (contactMap) {
-        gsap.from(contactMap, {
-            scale: 0.95,
-            opacity: 0.3,
-            duration: 1,
-            ease: "power2.out",
-            scrollTrigger: {
-                trigger: contactMap,
-                start: "top 85%",
-                toggleActions: "play none none reverse",
-            }
-        });
-    }
-
-    // ============================================================
-    // 13. GSAP - Contact card entrance
-    // ============================================================
-    const contactCard = document.querySelector('.contact-card');
-    if (contactCard) {
-        gsap.from(contactCard, {
-            y: 60,
-            opacity: 0.5,
-            duration: 0.8,
-            ease: "power3.out",
-            scrollTrigger: {
-                trigger: contactCard,
-                start: "top 90%",
-                toggleActions: "play none none reverse",
-            }
-        });
-    }
-
-    // ============================================================
-    // 14. GSAP - Footer subtle entrance
-    // ============================================================
-    const footer = document.querySelector('.footer');
-    if (footer) {
-        gsap.from(footer, {
-            opacity: 0.6,
-            y: 30,
-            duration: 0.8,
-            ease: "power2.out",
-            scrollTrigger: {
-                trigger: footer,
-                start: "top 95%",
-                toggleActions: "play none none reverse",
-            }
-        });
-    }
+    // NOTE: Contact map, contact card, and footer are animated by AOS (data-aos).
+    // No additional GSAP ScrollTrigger to avoid conflicts.
 
     // ============================================================
     // 15. GSAP - Subtle pulse for hero info icons (uniform, no position shift)
