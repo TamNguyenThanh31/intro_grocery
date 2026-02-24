@@ -762,6 +762,51 @@ img {
     font-size: 14px;
 }
 
+/* --- Floating Zalo Button --- */
+.zalo-float {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 60px;
+    height: 60px;
+    background-color: #0068FF;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0, 104, 255, 0.4);
+    z-index: 999;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+}
+
+.zalo-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 25px rgba(0, 104, 255, 0.5);
+}
+
+/* Pulse ring animation */
+.zalo-pulse-ring {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 3px solid #0068FF;
+    animation: zaloPulse 2s ease-out infinite;
+}
+
+@keyframes zaloPulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.6;
+    }
+
+    100% {
+        transform: scale(1.6);
+        opacity: 0;
+    }
+}
+
 /* --- Mobile Nav Menu --- */
 .nav {
     transition: all 0.3s ease;
