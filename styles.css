@@ -879,21 +879,40 @@ img {
         padding: 40px 20px;
     }
 
-    /* About section image fix */
+    /* About section - prevent all horizontal overflow on mobile */
+    .about-section {
+        overflow: hidden;
+    }
+
+    .about-grid {
+        overflow: hidden;
+    }
+
     .about-image-wrapper {
         overflow: hidden;
+        max-width: 100%;
+    }
+
+    /* Override AOS fade-left to fade-up on mobile to prevent horizontal shift */
+    .about-image-wrapper[data-aos="fade-left"] {
+        transform: none !important;
+    }
+
+    .about-image-wrapper[data-aos="fade-left"].aos-animate {
+        transform: none !important;
     }
 
     .placeholder-image {
         font-size: 48px;
+        max-width: 100%;
     }
 
     .experience-badge {
         width: 90px;
         height: 90px;
         font-size: 14px;
-        bottom: 5px;
-        right: 5px;
+        bottom: 10px;
+        right: 10px;
         border-width: 5px;
     }
 
