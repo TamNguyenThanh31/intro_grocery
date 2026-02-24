@@ -833,3 +833,63 @@ img {
         font-size: 36px;
     }
 }
+
+/* ==========================================================================
+   GSAP & AOS Animation Optimizations
+   ========================================================================== */
+
+/* GPU acceleration hints for animated elements */
+.hero-tag,
+.hero-title,
+.hero-subtitle,
+.hero-info-list,
+.hero-info-item,
+.hero-buttons .btn,
+.hero-open-badge,
+.hero-right,
+.category-card,
+.about-image-wrapper,
+.experience-badge,
+.contact-card {
+    will-change: transform, opacity;
+}
+
+/* Hero right panel needs overflow hidden for clip-path animation */
+.hero-right {
+    overflow: hidden;
+}
+
+/* Ensure hero section clips overflow for right panel reveal */
+.hero {
+    overflow: hidden;
+}
+
+/* Smooth transitions for GSAP-animated icons */
+.hero-info-icon {
+    will-change: transform;
+}
+
+.category-icon-wrapper {
+    will-change: transform;
+}
+
+/* AOS custom overrides for smoother feel */
+[data-aos] {
+    transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+
+/* Subtle hover lift enhancement for animated cards */
+.category-card {
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                box-shadow 0.4s ease;
+}
+
+/* Contact card smooth shadow on scroll reveal */
+.contact-card {
+    transition: box-shadow 0.5s ease;
+}
+
+/* Ensure footer elements don't flash before AOS kicks in */
+.footer [data-aos] {
+    transition-duration: 600ms !important;
+}

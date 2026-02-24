@@ -15,6 +15,9 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;700&display=swap"
         rel="stylesheet">
 
+    <!-- AOS CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css">
 
@@ -106,14 +109,14 @@
         <!-- Categories Section -->
         <section id="categories" class="section categories-section">
             <div class="container">
-                <div class="section-header text-center">
+                <div class="section-header text-center" data-aos="fade-up">
                     <h2 class="section-title">Chúng Tôi Có Gì?</h2>
                     <p class="section-desc">Đa dạng mặt hàng thiết yếu phục vụ đời sống hàng ngày của gia đình bạn.</p>
                 </div>
 
                 <div class="categories-grid">
                     <!-- Category 1 -->
-                    <div class="category-card">
+                    <div class="category-card" data-aos="fade-up" data-aos-delay="0">
                         <div class="category-icon-wrapper cream-bg">
                             <i class="fa-solid fa-kitchen-set"></i>
                         </div>
@@ -122,7 +125,7 @@
                     </div>
 
                     <!-- Category 2 -->
-                    <div class="category-card">
+                    <div class="category-card" data-aos="fade-up" data-aos-delay="100">
                         <div class="category-icon-wrapper orange-bg">
                             <i class="fa-solid fa-cookie-bite"></i>
                         </div>
@@ -131,7 +134,7 @@
                     </div>
 
                     <!-- Category 3 -->
-                    <div class="category-card">
+                    <div class="category-card" data-aos="fade-up" data-aos-delay="200">
                         <div class="category-icon-wrapper green-bg">
                             <i class="fa-solid fa-bottle-water"></i>
                         </div>
@@ -140,7 +143,7 @@
                     </div>
 
                     <!-- Category 4 -->
-                    <div class="category-card">
+                    <div class="category-card" data-aos="fade-up" data-aos-delay="300">
                         <div class="category-icon-wrapper blue-bg">
                             <i class="fa-solid fa-basket-shopping"></i>
                         </div>
@@ -157,32 +160,36 @@
             <div class="container">
                 <div class="about-grid">
                     <div class="about-content">
-                        <span class="badge badge-green">Về Chúng Tôi</span>
-                        <h2 class="section-title mt-2">Điểm Mua Sắm Rộng Rãi & Đầy Đủ</h2>
-                        <p class="about-text">
+                        <span class="badge badge-green" data-aos="fade-right">Về Chúng Tôi</span>
+                        <h2 class="section-title mt-2" data-aos="fade-right" data-aos-delay="100">Điểm Mua Sắm Rộng Rãi
+                            & Đầy Đủ</h2>
+                        <p class="about-text" data-aos="fade-right" data-aos-delay="200">
                             Không chỉ là một tiệm tạp hoá nhỏ lẻ, <strong>Toàn Lương</strong> tự hào mang đến không gian
                             mua sắm rộng rãi <strong>gấp 2-3 lần</strong> các cửa hàng tiện lợi thông thường.
                         </p>
-                        <p class="about-text">
+                        <p class="about-text" data-aos="fade-right" data-aos-delay="300">
                             Với lối đi thoáng đãng, hàng hoá được sắp xếp gọn gàng, chúng tôi phục vụ tận tâm, mang lại
                             mức giá phải chăng nhất cho bà con khu vực Phú Xá, các bạn học sinh, sinh viên và các chủ
                             quán ăn trong khu vực.
                         </p>
                         <ul class="feature-list">
-                            <li><i class="fa-solid fa-check text-green"></i> Không gian rộng rãi, dễ dàng tìm kiếm đồ.
+                            <li data-aos="fade-right" data-aos-delay="350"><i class="fa-solid fa-check text-green"></i>
+                                Không gian rộng rãi, dễ dàng tìm kiếm đồ.
                             </li>
-                            <li><i class="fa-solid fa-check text-green"></i> Giá cả bình dân, phù hợp với mọi nhà.</li>
-                            <li><i class="fa-solid fa-check text-green"></i> Đa dạng mặt hàng, đặc biệt là đồ gia dụng.
+                            <li data-aos="fade-right" data-aos-delay="400"><i class="fa-solid fa-check text-green"></i>
+                                Giá cả bình dân, phù hợp với mọi nhà.</li>
+                            <li data-aos="fade-right" data-aos-delay="450"><i class="fa-solid fa-check text-green"></i>
+                                Đa dạng mặt hàng, đặc biệt là đồ gia dụng.
                             </li>
                         </ul>
                     </div>
-                    <div class="about-image-wrapper">
+                    <div class="about-image-wrapper" data-aos="fade-left" data-aos-delay="200">
                         <!-- Placeholder for a real image, using a generic pattern for now -->
                         <div class="placeholder-image">
                             <i class="fa-solid fa-shop"></i>
                             <span>Hình ảnh cửa hàng rộng rãi</span>
                         </div>
-                        <div class="experience-badge">
+                        <div class="experience-badge" data-aos="zoom-in" data-aos-delay="500">
                             <span class="exp-text">Phục vụ tận tâm</span>
                         </div>
                     </div>
@@ -195,25 +202,26 @@
             <div class="container">
                 <div class="contact-card">
                     <div class="contact-info">
-                        <h2 class="section-title text-white">Ghé Thăm Cửa Hàng</h2>
-                        <p class="text-white-50">Chúng tôi luôn sẵn sàng phục vụ bạn từ sáng sớm đến tối muộn.</p>
+                        <h2 class="section-title text-white" data-aos="fade-up">Ghé Thăm Cửa Hàng</h2>
+                        <p class="text-white-50" data-aos="fade-up" data-aos-delay="100">Chúng tôi luôn sẵn sàng phục vụ
+                            bạn từ sáng sớm đến tối muộn.</p>
 
                         <div class="contact-details mt-4">
-                            <div class="contact-item">
+                            <div class="contact-item" data-aos="fade-up" data-aos-delay="100">
                                 <i class="fa-solid fa-location-dot"></i>
                                 <div>
                                     <h4>Địa chỉ</h4>
                                     <p>Số nhà 110, Đường Phú Xá, Tỉnh Thái Nguyên</p>
                                 </div>
                             </div>
-                            <div class="contact-item">
+                            <div class="contact-item" data-aos="fade-up" data-aos-delay="200">
                                 <i class="fa-solid fa-phone"></i>
                                 <div>
                                     <h4>Điện thoại liên hệ</h4>
                                     <p class="phone-number">0917 50 50 49</p>
                                 </div>
                             </div>
-                            <div class="contact-item">
+                            <div class="contact-item" data-aos="fade-up" data-aos-delay="300">
                                 <i class="fa-solid fa-clock"></i>
                                 <div>
                                     <h4>Giờ mở cửa</h4>
@@ -222,11 +230,12 @@
                             </div>
                         </div>
 
-                        <a href="tel:0917505049" class="btn btn-accent btn-large mt-4 w-100 text-center">
+                        <a href="tel:0917505049" class="btn btn-accent btn-large mt-4 w-100 text-center"
+                            data-aos="fade-up" data-aos-delay="400">
                             <i class="fa-solid fa-phone-volume"></i> Gọi Cho Chúng Tôi Ngay
                         </a>
                     </div>
-                    <div class="contact-map">
+                    <div class="contact-map" data-aos="fade-in" data-aos-delay="200">
                         <!-- Google Maps - Tạp hóa Toàn Lương actual location -->
                         <iframe
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.577!2d105.8527863!3d21.5555248!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31352727e3de73ab%3A0x88ff3f13c4c4c789!2zVOG6oXAgaMOzYSBUb8Odo24gTMaw4budbmc!5e0!3m2!1svi!2s!4v1740000000000!5m2!1svi!2s"
@@ -242,17 +251,25 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container text-center">
-            <div class="footer-logo mb-3">
+            <div class="footer-logo mb-3" data-aos="fade-up">
                 <i class="fa-solid fa-store"></i> TOÀN LƯƠNG
             </div>
-            <p class="footer-msg">Cảm ơn quý khách đã tin tưởng và ủng hộ Tạp hoá Toàn Lương!</p>
-            <div class="footer-bottom">
+            <p class="footer-msg" data-aos="fade-up" data-aos-delay="100">Cảm ơn quý khách đã tin tưởng và ủng hộ Tạp
+                hoá Toàn Lương!</p>
+            <div class="footer-bottom" data-aos="fade-up" data-aos-delay="200">
                 &copy; <span id="current-year"></span> Tạp hoá Toàn Lương. Thay mặt gia đình xin cảm ơn.
             </div>
         </div>
     </footer>
 
-    <!-- Scripts -->
+    <!-- GSAP + ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Custom Scripts -->
     <script src="script.js"></script>
 </body>
 
