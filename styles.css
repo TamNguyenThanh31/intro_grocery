@@ -586,6 +586,7 @@ img {
     font-size: 18px;
     color: var(--text-muted);
     margin-bottom: 20px;
+    text-align: justify;
 }
 
 .about-text strong {
