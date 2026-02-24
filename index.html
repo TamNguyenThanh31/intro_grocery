@@ -234,6 +234,13 @@
                             data-aos="fade-up" data-aos-delay="400">
                             <i class="fa-solid fa-phone-volume"></i> Gọi Cho Chúng Tôi Ngay
                         </a>
+                        <a href="https://www.google.com/maps/dir/?api=1&destination=21.5555248,105.8527863"
+                            target="_blank" rel="noopener noreferrer"
+                            class="btn btn-white btn-large mt-2 w-100 text-center" data-aos="fade-up"
+                            data-aos-delay="500"
+                            style="color: var(--primary-color); border: 2px solid var(--primary-color);">
+                            <i class="fa-solid fa-diamond-turn-right"></i> Chỉ Đường Đến Cửa Hàng
+                        </a>
                     </div>
                     <div class="contact-map">
                         <!-- Google Maps - Tạp hóa Toàn Lương actual location -->
@@ -262,12 +269,20 @@
         </div>
     </footer>
 
-    <!-- Floating Zalo Button -->
-    <a href="https://zalo.me/0889815585" target="_blank" rel="noopener noreferrer" class="zalo-float"
-        aria-label="Chat Zalo">
-        <span class="zalo-pulse-ring"></span>
-        <img src="https://page.widget.zalo.me/static/images/2.0/Logo.svg" alt="Zalo" width="32" height="32">
-    </a>
+    <!-- Floating Buttons -->
+    <div class="floating-buttons">
+        <!-- Directions Button -->
+        <a href="https://www.google.com/maps/dir/?api=1&destination=21.5555248,105.8527863" target="_blank"
+            rel="noopener noreferrer" class="directions-float" aria-label="Chỉ đường">
+            <i class="fa-solid fa-diamond-turn-right"></i>
+        </a>
+        <!-- Zalo Button -->
+        <a href="https://zalo.me/0889815585" target="_blank" rel="noopener noreferrer" class="zalo-float"
+            aria-label="Chat Zalo">
+            <span class="zalo-pulse-ring"></span>
+            <img src="https://page.widget.zalo.me/static/images/2.0/Logo.svg" alt="Zalo" width="32" height="32">
+        </a>
+    </div>
 
     <!-- GSAP + ScrollTrigger -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>

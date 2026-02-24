@@ -762,22 +762,50 @@ img {
     font-size: 14px;
 }
 
-/* --- Floating Zalo Button --- */
-.zalo-float {
+/* --- Floating Buttons (Zalo + Directions) --- */
+.floating-buttons {
     position: fixed;
     bottom: 24px;
     right: 24px;
-    width: 60px;
-    height: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    z-index: 999;
+}
+
+.directions-float {
+    width: 56px;
+    height: 56px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(46, 125, 50, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+    color: white;
+    font-size: 22px;
+}
+
+.directions-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 25px rgba(46, 125, 50, 0.5);
+    color: white;
+}
+
+.zalo-float {
+    width: 56px;
+    height: 56px;
     background-color: #0068FF;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     box-shadow: 0 4px 15px rgba(0, 104, 255, 0.4);
-    z-index: 999;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-decoration: none;
+    position: relative;
 }
 
 .zalo-float:hover {
