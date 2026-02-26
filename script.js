@@ -22,15 +22,27 @@ document.addEventListener('DOMContentLoaded', () => {
         const badge = document.querySelector('.hero-badge');
         if (!text || !badge) return;
 
-        const hour = new Date().getHours();
+        const now = new Date();
+        const hour = now.getHours();
+        const minutes = now.getMinutes();
         const isOpen = hour >= OPEN_HOUR && hour < CLOSE_HOUR;
+        const isClosingSoon = isOpen && hour >= (CLOSE_HOUR - 1);
 
-        if (isOpen) {
+        const dot = badge.querySelector('i');
+
+        if (isClosingSoon) {
+            const minsLeft = (CLOSE_HOUR - hour - 1) * 60 + (60 - minutes);
+            text.textContent = 'Sắp đóng cửa (còn ' + minsLeft + ' phút)';
+            dot.style.color = '#fbbf24';
+            badge.style.borderColor = 'rgba(251, 191, 36, 0.3)';
+        } else if (isOpen) {
             text.textContent = 'Đang mở cửa';
-            badge.querySelector('i').style.color = '#c8f169';
+            dot.style.color = '#c8f169';
+            badge.style.borderColor = '';
         } else {
-            text.textContent = 'Đã đóng cửa';
-            badge.querySelector('i').style.color = '#f87171';
+            text.textContent = 'Đã đóng cửa · Mở lại lúc 07:00';
+            dot.style.color = '#f87171';
+            badge.style.borderColor = 'rgba(248, 113, 113, 0.3)';
         }
     }
 
