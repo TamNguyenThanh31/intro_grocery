@@ -1,273 +1,348 @@
 /**
- * Tạp hoá Toàn Lương - Custom Scripts
- * With GSAP + ScrollTrigger + AOS animations
+ * Tạp hoá Toàn Lương — Runova-Inspired Animations
+ * GSAP + ScrollTrigger + AOS
  */
 
 document.addEventListener('DOMContentLoaded', () => {
 
     // ============================================================
-    // 1. Dynamic copyright year in footer
+    // 1. Copyright year
     // ============================================================
     const yearSpan = document.getElementById('current-year');
-    if (yearSpan) {
-        yearSpan.textContent = new Date().getFullYear();
-    }
+    if (yearSpan) yearSpan.textContent = new Date().getFullYear();
 
     // ============================================================
-    // 2. Dynamic store open/closed status badge
+    // 2. Store open/closed status
     // ============================================================
-    const OPEN_HOUR = 7;   // 07:00
-    const CLOSE_HOUR = 22; // 22:00
+    const OPEN_HOUR = 7;
+    const CLOSE_HOUR = 22;
 
     function updateStoreStatus() {
-        const dot = document.getElementById('store-status-dot');
         const text = document.getElementById('store-status-text');
-        if (!dot || !text) return;
+        const badge = document.querySelector('.hero-badge');
+        if (!text || !badge) return;
 
-        const now = new Date();
-        const currentHour = now.getHours();
-        const isOpen = currentHour >= OPEN_HOUR && currentHour < CLOSE_HOUR;
+        const hour = new Date().getHours();
+        const isOpen = hour >= OPEN_HOUR && hour < CLOSE_HOUR;
 
         if (isOpen) {
-            dot.style.color = '#4caf50';        // Green
             text.textContent = 'Đang mở cửa';
+            badge.querySelector('i').style.color = '#c8f169';
         } else {
-            dot.style.color = '#f44336';        // Red
             text.textContent = 'Đã đóng cửa';
+            badge.querySelector('i').style.color = '#f87171';
         }
     }
 
-    // Run immediately and then every 60 seconds
     updateStoreStatus();
     setInterval(updateStoreStatus, 60000);
 
     // ============================================================
-    // 3. Header background change on scroll
+    // 3. Header scroll effect
     // ============================================================
-    const header = document.querySelector('.header');
+    const header = document.getElementById('header');
 
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
-            header.style.boxShadow = 'var(--shadow-md)';
-            header.style.padding = '10px 0';
+            header.classList.add('scrolled');
         } else {
-            header.style.boxShadow = 'var(--shadow-sm)';
-            header.style.padding = '15px 0';
+            header.classList.remove('scrolled');
         }
     });
 
     // ============================================================
-    // 4. Smooth scrolling for anchor links
+    // 4. Smooth scrolling
     // ============================================================
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             const targetId = this.getAttribute('href');
-
-            // Skip if it's just "#"
             if (targetId === '#') return;
 
-            const targetElement = document.querySelector(targetId);
-
-            if (targetElement) {
+            const targetEl = document.querySelector(targetId);
+            if (targetEl) {
                 e.preventDefault();
-
-                // Calculate offset for fixed header
-                const headerHeight = document.querySelector('.header').offsetHeight;
-                const elementPosition = targetElement.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
-
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: "smooth"
-                });
+                const headerH = header.offsetHeight;
+                const pos = targetEl.getBoundingClientRect().top + window.pageYOffset - headerH;
+                window.scrollTo({ top: pos, behavior: 'smooth' });
             }
         });
     });
 
     // ============================================================
-    // 5. Mobile Menu Toggle
+    // 5. Mobile menu toggle
     // ============================================================
-    const mobileBtn = document.querySelector('.mobile-menu-btn');
-    const nav = document.querySelector('.nav');
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const nav = document.getElementById('nav');
 
     if (mobileBtn && nav) {
         mobileBtn.addEventListener('click', () => {
             nav.classList.toggle('nav-open');
-
-            // Toggle icon between bars and X
             const icon = mobileBtn.querySelector('i');
             if (nav.classList.contains('nav-open')) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-xmark');
+                icon.classList.replace('fa-bars', 'fa-xmark');
             } else {
-                icon.classList.remove('fa-xmark');
-                icon.classList.add('fa-bars');
+                icon.classList.replace('fa-xmark', 'fa-bars');
             }
         });
 
-        // Close menu when a nav link is clicked
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', () => {
                 nav.classList.remove('nav-open');
                 const icon = mobileBtn.querySelector('i');
-                icon.classList.remove('fa-xmark');
-                icon.classList.add('fa-bars');
+                icon.classList.replace('fa-xmark', 'fa-bars');
             });
         });
     }
 
     // ============================================================
-    // 6. Initialize AOS (Animate On Scroll)
+    // 6. Active nav link on scroll
+    // ============================================================
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('section[id]');
+
+    function updateActiveNav() {
+        const scrollY = window.pageYOffset + 100;
+        sections.forEach(section => {
+            const top = section.offsetTop - 100;
+            const height = section.offsetHeight;
+            const id = section.getAttribute('id');
+            if (scrollY >= top && scrollY < top + height) {
+                navLinks.forEach(l => l.classList.remove('active'));
+                const active = document.querySelector(`.nav-link[href="#${id}"]`);
+                if (active) active.classList.add('active');
+            }
+        });
+    }
+
+    window.addEventListener('scroll', updateActiveNav);
+
+    // ============================================================
+    // 7. Initialize AOS
     // ============================================================
     AOS.init({
-        duration: 800,
+        duration: 700,
         easing: 'ease-out-cubic',
-        once: false,         // Replay animations when scrolling back
-        offset: 80,          // Trigger 80px before element enters viewport
-        delay: 0,
-        anchorPlacement: 'top-bottom',
+        once: true,
+        offset: 60,
     });
 
     // ============================================================
-    // 7. GSAP - Register ScrollTrigger Plugin
+    // 8. GSAP — Register ScrollTrigger
     // ============================================================
     gsap.registerPlugin(ScrollTrigger);
 
     // ============================================================
-    // 8. GSAP Hero Entrance Animation (on page load)
+    // 9. CINEMATIC HERO ENTRANCE
     // ============================================================
     const heroTl = gsap.timeline({
-        defaults: {
-            ease: "power3.out",
-            duration: 0.7,
-        },
+        defaults: { ease: 'power3.out' },
     });
 
-    // Set initial state only for clip-path (can't be handled by .fromTo() easily)
-    gsap.set(".hero-right", { clipPath: "inset(0 100% 0 0)" });
+    // Initial states
+    gsap.set('.hero-overlay', { opacity: 0 });
+    gsap.set('.hero-content', { opacity: 0 });
 
-    // Build the hero timeline — .fromTo() for explicit control of both states
     heroTl
-        .fromTo(".hero-tag",
-            { y: 30, opacity: 0 },
-            { y: 0, opacity: 1, duration: 0.6 }
+        // Background video/image scale-in
+        .fromTo('.hero-bg-video, .hero-bg-img',
+            { scale: 1.2 },
+            { scale: 1, duration: 2, ease: 'power2.out' }
         )
-
-        .fromTo(".hero-title",
-            { y: 60, opacity: 0 },
-            { y: 0, opacity: 1, duration: 0.9 },
-            "-=0.3"
+        // Overlay fades in
+        .to('.hero-overlay',
+            { opacity: 1, duration: 1 },
+            0.3
         )
-
-        .fromTo(".hero-subtitle",
+        // Content block fades in
+        .to('.hero-content',
+            { opacity: 1, duration: 0.5 },
+            0.8
+        )
+        // Badge slides in
+        .fromTo('.hero-badge',
             { y: 30, opacity: 0 },
             { y: 0, opacity: 1, duration: 0.6 },
-            "-=0.4"
+            1.0
         )
-
-        .fromTo(".hero-info-list",
-            { x: -50, opacity: 0 },
-            { x: 0, opacity: 1, duration: 0.7 },
-            "-=0.3"
+        // Title lines stagger
+        .fromTo('.hero-title-line',
+            { y: 80, opacity: 0, skewY: 3 },
+            { y: 0, opacity: 1, skewY: 0, duration: 0.9, stagger: 0.15 },
+            1.1
         )
-
-        .fromTo(".hero-info-item",
-            { x: -25, opacity: 0 },
-            { x: 0, opacity: 1, duration: 0.5, stagger: 0.12 },
-            "-=0.3"
+        // Subtitle
+        .fromTo('.hero-subtitle',
+            { y: 30, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.6 },
+            '-=0.4'
         )
-
-        .fromTo(".hero-buttons .btn",
-            { y: 25, opacity: 0 },
-            { y: 0, opacity: 1, duration: 0.5, stagger: 0.15 },
-            "-=0.2"
+        // Info pills stagger
+        .fromTo('.info-pill',
+            { y: 20, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.5, stagger: 0.1 },
+            '-=0.3'
         )
-
-        // Hero right image panel reveal with clip-path
-        .to(".hero-right", {
-            clipPath: "inset(0 0% 0 0)", duration: 1.2, ease: "power4.inOut",
-        }, "-=1.0")
-
-        // Store status badge pops in
-        .fromTo(".hero-open-badge",
-            { scale: 0, opacity: 0 },
-            { scale: 1, opacity: 1, duration: 0.6, ease: "back.out(1.7)" },
-            "-=0.4"
+        // CTA buttons
+        .fromTo('.hero-buttons .btn',
+            { y: 20, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.5, stagger: 0.12 },
+            '-=0.2'
+        )
+        // Floating card pops in
+        .fromTo('.hero-float-card',
+            { x: 60, opacity: 0, scale: 0.9 },
+            { x: 0, opacity: 1, scale: 1, duration: 0.8, ease: 'back.out(1.4)' },
+            '-=0.5'
         );
 
-    // NOTE: Section titles are animated by AOS (data-aos attributes in HTML).
-    // No additional GSAP ScrollTrigger needed here to avoid conflicts.
+    // ============================================================
+    // 10. COUNTER ANIMATION for Stats Bar
+    // ============================================================
+    const statNumbers = document.querySelectorAll('.stat-number');
+
+    statNumbers.forEach(num => {
+        const target = parseInt(num.dataset.target, 10);
+
+        ScrollTrigger.create({
+            trigger: num,
+            start: 'top 85%',
+            once: true,
+            onEnter: () => {
+                gsap.to(num, {
+                    textContent: target,
+                    duration: 2,
+                    ease: 'power1.out',
+                    snap: { textContent: 1 },
+                    onUpdate: function () {
+                        num.textContent = Math.round(
+                            gsap.getProperty(num, 'textContent')
+                        );
+                    },
+                });
+            },
+        });
+    });
 
     // ============================================================
-    // 10. GSAP ScrollTrigger - Category Cards hover bounce
+    // 11. BENTO CARDS — Stagger reveal with ScrollTrigger
     // ============================================================
-    gsap.utils.toArray('.category-icon-wrapper').forEach(icon => {
-        // Continuous subtle floating animation
+    gsap.utils.toArray('.bento-card').forEach((card, i) => {
+        gsap.fromTo(card,
+            { y: 40, opacity: 0 },
+            {
+                y: 0,
+                opacity: 1,
+                duration: 0.7,
+                delay: i * 0.1,
+                ease: 'power2.out',
+                scrollTrigger: {
+                    trigger: card,
+                    start: 'top 88%',
+                    toggleActions: 'play none none none',
+                },
+            }
+        );
+    });
+
+    // Floating icon animation for bento icons
+    gsap.utils.toArray('.bento-icon').forEach(icon => {
         gsap.to(icon, {
-            y: -5,
-            duration: 2,
-            ease: "sine.inOut",
+            y: -4,
+            duration: 2.5,
+            ease: 'sine.inOut',
             yoyo: true,
             repeat: -1,
             scrollTrigger: {
                 trigger: icon,
-                start: "top 90%",
-                toggleActions: "play pause resume pause",
-            }
+                start: 'top 90%',
+                toggleActions: 'play pause resume pause',
+            },
         });
     });
 
     // ============================================================
-    // 11. GSAP ScrollTrigger - About Section parallax image
+    // 12. ABOUT SECTION — Parallax image
     // ============================================================
-    const aboutImage = document.querySelector('.about-image-wrapper');
-    if (aboutImage) {
-        gsap.to(aboutImage, {
+    const aboutImg = document.querySelector('.about-image-wrapper');
+    if (aboutImg) {
+        gsap.to(aboutImg, {
             y: -30,
             scrollTrigger: {
                 trigger: '.about-section',
-                start: "top bottom",
-                end: "bottom top",
+                start: 'top bottom',
+                end: 'bottom top',
                 scrub: 1.5,
-            }
+            },
         });
     }
 
-    // Experience badge rotation on scroll
-    const expBadge = document.querySelector('.experience-badge');
-    if (expBadge) {
-        gsap.to(expBadge, {
-            rotation: 10,
-            scrollTrigger: {
-                trigger: expBadge,
-                start: "top 90%",
-                end: "top 30%",
-                scrub: 1,
+    // About badge pop
+    const aboutBadge = document.querySelector('.about-badge');
+    if (aboutBadge) {
+        gsap.fromTo(aboutBadge,
+            { scale: 0, opacity: 0 },
+            {
+                scale: 1,
+                opacity: 1,
+                duration: 0.7,
+                ease: 'back.out(1.7)',
+                scrollTrigger: {
+                    trigger: aboutBadge,
+                    start: 'top 85%',
+                },
             }
-        });
+        );
     }
 
-    // NOTE: Contact map, contact card, and footer are animated by AOS (data-aos).
-    // No additional GSAP ScrollTrigger to avoid conflicts.
-
     // ============================================================
-    // 15. GSAP - Subtle pulse for hero info icons (uniform, no position shift)
+    // 13. TESTIMONIAL CARDS — Stagger
     // ============================================================
-    gsap.to('.hero-info-icon', {
-        scale: 1.08,
-        duration: 2,
-        ease: "sine.inOut",
-        yoyo: true,
-        repeat: -1,
+    gsap.utils.toArray('.testimonial-card').forEach((card, i) => {
+        gsap.fromTo(card,
+            { y: 50, opacity: 0 },
+            {
+                y: 0,
+                opacity: 1,
+                duration: 0.7,
+                delay: i * 0.15,
+                ease: 'power2.out',
+                scrollTrigger: {
+                    trigger: card,
+                    start: 'top 88%',
+                    toggleActions: 'play none none none',
+                },
+            }
+        );
     });
 
     // ============================================================
-    // 16. GSAP - Pulse effect for CTA buttons
+    // 14. CONTACT BENTO — Stagger cards
     // ============================================================
-    gsap.to('.btn-accent', {
-        boxShadow: "0 0 25px rgba(230, 81, 0, 0.4)",
-        duration: 1.5,
-        ease: "sine.inOut",
+    gsap.utils.toArray('.contact-info-card, .contact-cta-card').forEach((card, i) => {
+        gsap.fromTo(card,
+            { y: 30, opacity: 0 },
+            {
+                y: 0,
+                opacity: 1,
+                duration: 0.6,
+                delay: i * 0.1,
+                ease: 'power2.out',
+                scrollTrigger: {
+                    trigger: card,
+                    start: 'top 90%',
+                    toggleActions: 'play none none none',
+                },
+            }
+        );
+    });
+
+    // ============================================================
+    // 15. Subtle pulse for CTA buttons
+    // ============================================================
+    gsap.to('.btn-lime', {
+        boxShadow: '0 0 30px rgba(200, 241, 105, 0.35)',
+        duration: 1.8,
+        ease: 'sine.inOut',
         yoyo: true,
         repeat: -1,
     });
