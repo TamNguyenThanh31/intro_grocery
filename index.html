@@ -8,21 +8,22 @@
     <meta name="description"
         content="Tạp hoá Toàn Lương tại 110 Phú Xá, Thái Nguyên. Cung cấp đa dạng đồ gia dụng, bánh kẹo, đồ ăn vặt phục vụ bà con khu vực.">
 
-    <!-- Google Fonts -->
+    <!-- Google Fonts — Be Vietnam Pro (full Vietnamese support) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap"
         rel="stylesheet">
 
     <!-- AOS CSS -->
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
 
+    <!-- Phosphor Icons -->
+    <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css">
-
-    <!-- FontAwesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
@@ -31,7 +32,7 @@
     <header class="header" id="header">
         <div class="header-pill">
             <a href="#" class="logo">
-                <div class="logo-icon"><i class="fa-solid fa-store"></i></div>
+                <div class="logo-icon"><i class="ph-bold ph-storefront"></i></div>
                 <span class="logo-text">TOÀN LƯƠNG</span>
             </a>
 
@@ -47,10 +48,10 @@
 
             <div class="header-actions">
                 <a href="tel:0889815585" class="btn btn-cta-header">
-                    Gọi ngay <i class="fa-solid fa-arrow-up-right"></i>
+                    Gọi ngay <i class="ph-bold ph-arrow-up-right"></i>
                 </a>
                 <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Menu">
-                    <i class="fa-solid fa-bars"></i>
+                    <i class="ph-bold ph-list"></i>
                 </button>
             </div>
         </div>
@@ -68,7 +69,7 @@
 
             <div class="container hero-content">
                 <div class="hero-badge">
-                    <i class="fa-solid fa-circle" style="font-size:8px; color: #c8f169;"></i>
+                    <i class="ph-fill ph-circle" style="font-size:8px; color: #c8f169;"></i>
                     <span id="store-status-text">Đang mở cửa</span>
                 </div>
 
@@ -81,32 +82,32 @@
 
                 <div class="hero-info-pills">
                     <div class="info-pill">
-                        <i class="fa-regular fa-clock"></i>
+                        <i class="ph ph-clock"></i>
                         <span>07:00 – 22:00</span>
                     </div>
                     <div class="info-pill">
-                        <i class="fa-solid fa-location-dot"></i>
+                        <i class="ph-bold ph-map-pin"></i>
                         <span>110 Phú Xá, Thái Nguyên</span>
                     </div>
                     <div class="info-pill">
-                        <i class="fa-solid fa-phone"></i>
+                        <i class="ph-bold ph-phone"></i>
                         <span>0889 81 55 85</span>
                     </div>
                 </div>
 
                 <div class="hero-buttons">
                     <a href="tel:0889815585" class="btn btn-lime">
-                        <i class="fa-solid fa-phone-volume"></i> Gọi Ngay
+                        <i class="ph-bold ph-phone-call"></i> Gọi Ngay
                     </a>
                     <a href="#contact" class="btn btn-outline-light">
-                        Xem bản đồ <i class="fa-solid fa-arrow-right"></i>
+                        Xem bản đồ <i class="ph-bold ph-arrow-right"></i>
                     </a>
                 </div>
             </div>
 
             <!-- Floating card on hero -->
             <div class="hero-float-card">
-                <div class="hero-float-icon"><i class="fa-solid fa-truck-fast"></i></div>
+                <div class="hero-float-icon"><i class="ph-bold ph-truck"></i></div>
                 <div>
                     <strong>Phục vụ tận tâm</strong>
                     <p>Hàng hoá đầy đủ mỗi ngày</p>
@@ -122,7 +123,7 @@
                     <span class="stat-label">Danh mục</span>
                 </div>
                 <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
-                    <span class="stat-number" data-target="1000">0</span><span class="stat-plus">+</span>
+                    <span class="stat-number" data-target="600">0</span><span class="stat-plus">+</span>
                     <span class="stat-label">Sản phẩm</span>
                 </div>
                 <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
@@ -149,7 +150,7 @@
                     <!-- Large card -->
                     <div class="bento-card bento-large" data-aos="fade-up" data-aos-delay="0">
                         <div class="bento-icon cream-bg">
-                            <i class="fa-solid fa-kitchen-set"></i>
+                            <i class="ph-bold ph-cooking-pot"></i>
                         </div>
                         <h3 class="bento-title">Đồ Gia Dụng</h3>
                         <p class="bento-desc">Chén bát, chổi mồi, các vật dụng nhà bếp, đồ nhựa tiện ích cho gia
@@ -160,7 +161,7 @@
                     <!-- Medium card -->
                     <div class="bento-card bento-medium" data-aos="fade-up" data-aos-delay="100">
                         <div class="bento-icon orange-bg">
-                            <i class="fa-solid fa-cookie-bite"></i>
+                            <i class="ph-bold ph-cookie"></i>
                         </div>
                         <h3 class="bento-title">Bánh Kẹo & Ăn Vặt</h3>
                         <p class="bento-desc">Đa dạng snack, bánh kẹo cho mọi lứa tuổi.</p>
@@ -169,7 +170,7 @@
                     <!-- Medium card -->
                     <div class="bento-card bento-medium" data-aos="fade-up" data-aos-delay="200">
                         <div class="bento-icon green-bg">
-                            <i class="fa-solid fa-bottle-water"></i>
+                            <i class="ph-bold ph-beer-bottle"></i>
                         </div>
                         <h3 class="bento-title">Đồ Uống</h3>
                         <p class="bento-desc">Nước giải khát, nước tinh khiết, đồ uống đóng chai.</p>
@@ -178,7 +179,7 @@
                     <!-- Wide card -->
                     <div class="bento-card bento-wide" data-aos="fade-up" data-aos-delay="300">
                         <div class="bento-icon blue-bg">
-                            <i class="fa-solid fa-basket-shopping"></i>
+                            <i class="ph-bold ph-basket"></i>
                         </div>
                         <div class="bento-wide-content">
                             <h3 class="bento-title">Tạp Hoá Tổng Hợp</h3>
@@ -198,7 +199,7 @@
                         <div class="about-image-wrapper">
                             <img src="assets/images/about-store.png" alt="Cửa hàng Toàn Lương" class="about-img">
                             <div class="about-badge">
-                                <i class="fa-solid fa-heart"></i>
+                                <i class="ph-fill ph-heart"></i>
                                 <span>Phục vụ tận tâm</span>
                             </div>
                         </div>
@@ -219,15 +220,15 @@
 
                         <div class="about-features">
                             <div class="about-feature-item">
-                                <div class="feature-check"><i class="fa-solid fa-check"></i></div>
+                                <div class="feature-check"><i class="ph-bold ph-check"></i></div>
                                 <span>Không gian rộng rãi, dễ tìm đồ</span>
                             </div>
                             <div class="about-feature-item">
-                                <div class="feature-check"><i class="fa-solid fa-check"></i></div>
+                                <div class="feature-check"><i class="ph-bold ph-check"></i></div>
                                 <span>Giá cả bình dân, phù hợp mọi nhà</span>
                             </div>
                             <div class="about-feature-item">
-                                <div class="feature-check"><i class="fa-solid fa-check"></i></div>
+                                <div class="feature-check"><i class="ph-bold ph-check"></i></div>
                                 <span>Đa dạng mặt hàng, đặc biệt đồ gia dụng</span>
                             </div>
                         </div>
@@ -247,15 +248,15 @@
                 <div class="testimonials-grid">
                     <div class="testimonial-card" data-aos="fade-up" data-aos-delay="0">
                         <div class="testimonial-stars">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                                class="fa-solid fa-star"></i>
+                            <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                                class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                                class="ph-fill ph-star"></i>
                         </div>
                         <p class="testimonial-text">"Cửa hàng rộng rãi, đồ đạc sắp xếp gọn gàng lắm. Mình hay mua đồ
                             gia dụng ở đây, giá rẻ hơn chỗ khác."</p>
                         <div class="testimonial-author">
                             <div class="testimonial-avatar">
-                                <i class="fa-solid fa-user"></i>
+                                <i class="ph-bold ph-user"></i>
                             </div>
                             <div>
                                 <strong>Chị Hương</strong>
@@ -266,15 +267,15 @@
 
                     <div class="testimonial-card" data-aos="fade-up" data-aos-delay="150">
                         <div class="testimonial-stars">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                                class="fa-solid fa-star"></i>
+                            <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                                class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                                class="ph-fill ph-star"></i>
                         </div>
                         <p class="testimonial-text">"Chủ tiệm vui vẻ, nhiệt tình. Hàng hoá đa dạng, cần gì cũng có.
                             Rất tiện cho việc mua sắm hàng ngày."</p>
                         <div class="testimonial-author">
                             <div class="testimonial-avatar">
-                                <i class="fa-solid fa-user"></i>
+                                <i class="ph-bold ph-user"></i>
                             </div>
                             <div>
                                 <strong>Anh Tuấn</strong>
@@ -285,15 +286,15 @@
 
                     <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
                         <div class="testimonial-stars">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                                class="fa-solid fa-star-half-stroke"></i>
+                            <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                                class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                                class="ph-fill ph-star-half"></i>
                         </div>
                         <p class="testimonial-text">"Mở cửa từ sáng đến tối muộn nên rất thuận tiện. Hay ghé mua nước
                             uống và bánh kẹo cho con. Recommend!"</p>
                         <div class="testimonial-author">
                             <div class="testimonial-avatar">
-                                <i class="fa-solid fa-user"></i>
+                                <i class="ph-bold ph-user"></i>
                             </div>
                             <div>
                                 <strong>Chị Lan</strong>
@@ -326,19 +327,19 @@
 
                     <!-- Contact info cards -->
                     <div class="contact-info-card" data-aos="fade-up" data-aos-delay="100">
-                        <div class="contact-info-icon"><i class="fa-solid fa-location-dot"></i></div>
+                        <div class="contact-info-icon"><i class="ph-bold ph-map-pin"></i></div>
                         <h4>Địa chỉ</h4>
                         <p>Số nhà 110, Đường Phú Xá<br>Tỉnh Thái Nguyên</p>
                     </div>
 
                     <div class="contact-info-card" data-aos="fade-up" data-aos-delay="200">
-                        <div class="contact-info-icon"><i class="fa-solid fa-phone"></i></div>
+                        <div class="contact-info-icon"><i class="ph-bold ph-phone"></i></div>
                         <h4>Điện thoại</h4>
                         <p class="contact-phone">0889 81 55 85</p>
                     </div>
 
                     <div class="contact-info-card" data-aos="fade-up" data-aos-delay="300">
-                        <div class="contact-info-icon"><i class="fa-solid fa-clock"></i></div>
+                        <div class="contact-info-icon"><i class="ph-bold ph-clock"></i></div>
                         <h4>Giờ mở cửa</h4>
                         <p>T2 – CN: 07:00 – 22:00</p>
                     </div>
@@ -347,12 +348,12 @@
                     <div class="contact-cta-card" data-aos="fade-up" data-aos-delay="400">
                         <h3>Liên hệ ngay!</h3>
                         <a href="tel:0889815585" class="btn btn-lime btn-large w-100">
-                            <i class="fa-solid fa-phone-volume"></i> Gọi Cho Chúng Tôi
+                            <i class="ph-bold ph-phone-call"></i> Gọi Cho Chúng Tôi
                         </a>
                         <a href="https://www.google.com/maps/dir/?api=1&destination=21.5555248,105.8527863"
                             target="_blank" rel="noopener noreferrer"
                             class="btn btn-outline-light btn-large w-100 mt-2">
-                            <i class="fa-solid fa-diamond-turn-right"></i> Chỉ Đường Đến Cửa Hàng
+                            <i class="ph-bold ph-navigation-arrow"></i> Chỉ Đường Đến Cửa Hàng
                         </a>
                     </div>
                 </div>
@@ -366,7 +367,7 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <div class="footer-logo">
-                        <i class="fa-solid fa-store"></i> TOÀN LƯƠNG
+                        <i class="ph-bold ph-storefront"></i> TOÀN LƯƠNG
                     </div>
                     <p class="footer-msg">Cảm ơn quý khách đã tin tưởng và ủng hộ Tạp hoá Toàn Lương!</p>
                 </div>
@@ -379,9 +380,9 @@
                 </div>
                 <div class="footer-contact-info">
                     <h4>Liên hệ</h4>
-                    <p><i class="fa-solid fa-location-dot"></i> 110 Phú Xá, Thái Nguyên</p>
-                    <p><i class="fa-solid fa-phone"></i> 0889 81 55 85</p>
-                    <p><i class="fa-regular fa-clock"></i> 07:00 – 22:00 mỗi ngày</p>
+                    <p><i class="ph-bold ph-map-pin"></i> 110 Phú Xá, Thái Nguyên</p>
+                    <p><i class="ph-bold ph-phone"></i> 0889 81 55 85</p>
+                    <p><i class="ph ph-clock"></i> 07:00 – 22:00 mỗi ngày</p>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -394,7 +395,7 @@
     <div class="floating-buttons">
         <a href="https://www.google.com/maps/dir/?api=1&destination=21.5555248,105.8527863" target="_blank"
             rel="noopener noreferrer" class="float-btn directions-float" aria-label="Chỉ đường">
-            <i class="fa-solid fa-diamond-turn-right"></i>
+            <i class="ph-bold ph-navigation-arrow"></i>
         </a>
         <a href="https://zalo.me/0889815585" target="_blank" rel="noopener noreferrer" class="float-btn zalo-float"
             aria-label="Chat Zalo">
