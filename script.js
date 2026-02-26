@@ -372,44 +372,119 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ============================================================
-    // Gallery Accordion Hover (GSAP)
+    // Gallery Accordion (Desktop: hover | Mobile: auto-play + tap)
     // ============================================================
     const galleryGrid = document.querySelector('.gallery-grid');
     const galleryItems = document.querySelectorAll('.gallery-item');
 
-    if (galleryGrid && galleryItems.length > 0) {
-        galleryItems.forEach(item => {
-            item.addEventListener('mouseenter', () => {
-                // Expand hovered item, shrink siblings
-                gsap.to(item, {
-                    flex: '3 1 0%',
+    function expandItem(target) {
+        gsap.to(target, {
+            flex: '3 1 0%',
+            duration: 1.2,
+            ease: 'power2.inOut',
+            overwrite: 'auto'
+        });
+        galleryItems.forEach(sibling => {
+            if (sibling !== target) {
+                gsap.to(sibling, {
+                    flex: '0.5 1 0%',
                     duration: 1.2,
                     ease: 'power2.inOut',
                     overwrite: 'auto'
                 });
-                galleryItems.forEach(sibling => {
-                    if (sibling !== item) {
-                        gsap.to(sibling, {
-                            flex: '0.5 1 0%',
-                            duration: 1.2,
-                            ease: 'power2.inOut',
-                            overwrite: 'auto'
-                        });
-                    }
-                });
+            }
+        });
+    }
+
+    function resetAll() {
+        galleryItems.forEach(item => {
+            gsap.to(item, {
+                flex: '1 1 20%',
+                duration: 1.2,
+                ease: 'power2.inOut',
+                overwrite: 'auto'
+            });
+        });
+    }
+
+    if (galleryGrid && galleryItems.length > 0) {
+        const isMobile = () => window.matchMedia('(max-width: 768px)').matches;
+        let autoPlayInterval = null;
+        let autoPlayIndex = 0;
+        let pauseTimeout = null;
+
+        // --- Desktop: hover ---
+        galleryItems.forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                if (isMobile()) return;
+                expandItem(item);
             });
         });
 
-        // Reset all when mouse leaves entire grid
         galleryGrid.addEventListener('mouseleave', () => {
-            galleryItems.forEach(item => {
-                gsap.to(item, {
-                    flex: '1 1 20%',
-                    duration: 1.2,
-                    ease: 'power2.inOut',
-                    overwrite: 'auto'
-                });
+            if (isMobile()) return;
+            resetAll();
+        });
+
+        // --- Mobile: auto-play + tap ---
+        function startAutoPlay() {
+            stopAutoPlay();
+            autoPlayInterval = setInterval(() => {
+                expandItem(galleryItems[autoPlayIndex]);
+                autoPlayIndex = (autoPlayIndex + 1) % galleryItems.length;
+            }, 3000);
+        }
+
+        function stopAutoPlay() {
+            if (autoPlayInterval) {
+                clearInterval(autoPlayInterval);
+                autoPlayInterval = null;
+            }
+            if (pauseTimeout) {
+                clearTimeout(pauseTimeout);
+                pauseTimeout = null;
+            }
+        }
+
+        function resumeAutoPlayAfterDelay() {
+            pauseTimeout = setTimeout(() => {
+                startAutoPlay();
+            }, 5000);
+        }
+
+        // Tap to expand on mobile
+        galleryItems.forEach((item, i) => {
+            item.addEventListener('click', (e) => {
+                if (!isMobile()) return;
+                e.stopPropagation();
+                stopAutoPlay();
+                autoPlayIndex = (i + 1) % galleryItems.length;
+                expandItem(item);
+                resumeAutoPlayAfterDelay();
             });
+        });
+
+        // Start auto-play on mobile when gallery is visible
+        if (typeof IntersectionObserver !== 'undefined') {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && isMobile()) {
+                        startAutoPlay();
+                    } else {
+                        stopAutoPlay();
+                        resetAll();
+                    }
+                });
+            }, { threshold: 0.3 });
+            observer.observe(galleryGrid);
+        }
+
+        // Handle resize (desktop <-> mobile switch)
+        window.addEventListener('resize', () => {
+            if (!isMobile()) {
+                stopAutoPlay();
+                resetAll();
+            }
         });
     }
 

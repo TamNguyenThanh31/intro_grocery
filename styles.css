@@ -1861,30 +1861,14 @@ img {
    =================================================================== */
 @media (max-width: 768px) {
     .gallery-grid {
-        flex-direction: row;
-        height: 250px;
-        gap: 10px;
-        overflow-x: auto;
-        overflow-y: hidden;
-        scroll-snap-type: x mandatory;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-        padding-bottom: 8px;
-    }
-
-    .gallery-grid::-webkit-scrollbar {
-        display: none;
+        height: 220px;
+        gap: 8px;
+        overflow: hidden;
     }
 
     .gallery-item {
-        flex: 0 0 75vw;
-        scroll-snap-align: center;
-        height: 100%;
-    }
-
-    .gallery-grid:hover .gallery-item,
-    .gallery-grid:hover .gallery-item:hover {
-        flex: 0 0 75vw;
+        flex: 1 1 20%;
+        min-width: 0;
     }
 
     .lightbox-img {
