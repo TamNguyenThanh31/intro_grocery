@@ -8,6 +8,17 @@
     <meta name="description"
         content="Tạp hoá Toàn Lương tại 110 Phú Xá, Thái Nguyên. Cung cấp đa dạng đồ gia dụng, bánh kẹo, đồ ăn vặt phục vụ bà con khu vực.">
 
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <!-- Open Graph (Facebook / Zalo) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Tạp hoá Toàn Lương - Tiện lợi, Đầy đủ & Gần gũi">
+    <meta property="og:description"
+        content="Cửa hàng tạp hoá tại 110 Phú Xá, Thái Nguyên. Đồ gia dụng, bánh kẹo, đồ uống — mở cửa 07:00–22:00 mỗi ngày.">
+    <meta property="og:image" content="assets/images/about-store.png">
+    <meta property="og:locale" content="vi_VN">
+
     <!-- JSON-LD Structured Data for Local Business -->
     <script type="application/ld+json">
     {
@@ -63,6 +74,15 @@
 
 <body>
 
+    <!-- ============ PRELOADER ============ -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon"><i class="ph-bold ph-storefront"></i></div>
+            <span class="preloader-text">Đợi xíu nha...</span>
+            <div class="preloader-spinner"></div>
+        </div>
+    </div>
+
     <!-- ============ FLOATING PILL HEADER ============ -->
     <header class="header" id="header">
         <div class="header-pill">
@@ -77,6 +97,7 @@
                     <li><a href="#categories" class="nav-link">Danh mục</a></li>
                     <li><a href="#about" class="nav-link">Giới thiệu</a></li>
                     <li><a href="#testimonials" class="nav-link">Đánh giá</a></li>
+                    <li><a href="#gallery" class="nav-link">Hình ảnh</a></li>
                     <li><a href="#contact" class="nav-link">Liên hệ</a></li>
                 </ul>
             </nav>
@@ -341,6 +362,58 @@
             </div>
         </section>
 
+        <!-- ============ GALLERY SECTION ============ -->
+        <section id="gallery" class="section gallery-section">
+            <div class="container">
+                <div class="section-header text-center" data-aos="fade-up">
+                    <span class="section-badge">Hình ảnh</span>
+                    <h2 class="section-title">CỬA HÀNG<br>CỦA CHÚNG TÔI</h2>
+                    <p class="section-desc">Không gian mua sắm rộng rãi, hàng hoá được sắp xếp gọn gàng.</p>
+                </div>
+
+                <div class="gallery-grid">
+                    <div class="gallery-item" data-aos="fade-up" data-aos-delay="0">
+                        <img src="assets/images/gallery1.jpg" alt="Kệ hàng tạp hoá" loading="lazy">
+                        <div class="gallery-overlay">
+                            <i class="ph-bold ph-magnifying-glass-plus"></i>
+                        </div>
+                    </div>
+                    <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
+                        <img src="assets/images/gallery2.jpg" alt="Sản phẩm cửa hàng" loading="lazy">
+                        <div class="gallery-overlay">
+                            <i class="ph-bold ph-magnifying-glass-plus"></i>
+                        </div>
+                    </div>
+                    <div class="gallery-item" data-aos="fade-up" data-aos-delay="200">
+                        <img src="assets/images/gallery3.jpg" alt="Khu vực đồ gia dụng" loading="lazy">
+                        <div class="gallery-overlay">
+                            <i class="ph-bold ph-magnifying-glass-plus"></i>
+                        </div>
+                    </div>
+                    <div class="gallery-item" data-aos="fade-up" data-aos-delay="300">
+                        <img src="assets/images/gallery4.jpg" alt="Bánh kẹo & đồ ăn vặt" loading="lazy">
+                        <div class="gallery-overlay">
+                            <i class="ph-bold ph-magnifying-glass-plus"></i>
+                        </div>
+                    </div>
+                    <div class="gallery-item" data-aos="fade-up" data-aos-delay="400">
+                        <img src="assets/images/gallery5.jpg" alt="Nước uống & đồ giải khát" loading="lazy">
+                        <div class="gallery-overlay">
+                            <i class="ph-bold ph-magnifying-glass-plus"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Lightbox -->
+        <div class="lightbox" id="lightbox">
+            <button class="lightbox-close" id="lightbox-close"><i class="ph-bold ph-x"></i></button>
+            <button class="lightbox-prev" id="lightbox-prev"><i class="ph-bold ph-caret-left"></i></button>
+            <img class="lightbox-img" id="lightbox-img" src="" alt="">
+            <button class="lightbox-next" id="lightbox-next"><i class="ph-bold ph-caret-right"></i></button>
+        </div>
+
         <!-- ============ CONTACT / MAP SECTION ============ -->
         <section id="contact" class="section contact-section">
             <div class="container">
@@ -406,6 +479,20 @@
                         <i class="ph-bold ph-storefront"></i> TOÀN LƯƠNG
                     </div>
                     <p class="footer-msg">Cảm ơn quý khách đã tin tưởng và ủng hộ Tạp hoá Toàn Lương!</p>
+                    <div class="footer-socials">
+                        <a href="https://www.facebook.com/nguyentam310103" target="_blank" rel="noopener noreferrer"
+                            aria-label="Facebook">
+                            <i class="ph-bold ph-facebook-logo"></i>
+                        </a>
+                        <a href="https://zalo.me/0889815585" target="_blank" rel="noopener noreferrer"
+                            aria-label="Zalo">
+                            <img src="https://page.widget.zalo.me/static/images/2.0/Logo.svg" alt="Zalo" width="20"
+                                height="20">
+                        </a>
+                        <a href="tel:0889815585" aria-label="Điện thoại">
+                            <i class="ph-bold ph-phone"></i>
+                        </a>
+                    </div>
                 </div>
                 <div class="footer-links">
                     <h4>Liên kết</h4>
@@ -426,6 +513,11 @@
             </div>
         </div>
     </footer>
+
+    <!-- Scroll to Top -->
+    <button class="scroll-top" id="scroll-top" aria-label="Lên đầu trang">
+        <i class="ph-bold ph-arrow-up"></i>
+    </button>
 
     <!-- Floating Buttons -->
     <div class="floating-buttons">
