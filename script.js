@@ -359,4 +359,136 @@ document.addEventListener('DOMContentLoaded', () => {
         repeat: -1,
     });
 
+    // ============================================================
+    // Preloader
+    // ============================================================
+    window.addEventListener('load', () => {
+        const preloader = document.getElementById('preloader');
+        if (preloader) {
+            setTimeout(() => {
+                preloader.classList.add('hidden');
+            }, 800);
+        }
+    });
+
+    // ============================================================
+    // Gallery Accordion Hover (GSAP)
+    // ============================================================
+    const galleryGrid = document.querySelector('.gallery-grid');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+
+    if (galleryGrid && galleryItems.length > 0) {
+        galleryItems.forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                // Expand hovered item, shrink siblings
+                gsap.to(item, {
+                    flex: '3 1 0%',
+                    duration: 1.2,
+                    ease: 'power2.inOut',
+                    overwrite: 'auto'
+                });
+                galleryItems.forEach(sibling => {
+                    if (sibling !== item) {
+                        gsap.to(sibling, {
+                            flex: '0.5 1 0%',
+                            duration: 1.2,
+                            ease: 'power2.inOut',
+                            overwrite: 'auto'
+                        });
+                    }
+                });
+            });
+        });
+
+        // Reset all when mouse leaves entire grid
+        galleryGrid.addEventListener('mouseleave', () => {
+            galleryItems.forEach(item => {
+                gsap.to(item, {
+                    flex: '1 1 20%',
+                    duration: 1.2,
+                    ease: 'power2.inOut',
+                    overwrite: 'auto'
+                });
+            });
+        });
+    }
+
+    // ============================================================
+    // Gallery Lightbox
+    // ============================================================
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxClose = document.getElementById('lightbox-close');
+    const lightboxPrev = document.getElementById('lightbox-prev');
+    const lightboxNext = document.getElementById('lightbox-next');
+    let currentGalleryIndex = 0;
+
+    function openLightbox(index) {
+        currentGalleryIndex = index;
+        const img = galleryItems[index].querySelector('img');
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    function nextImage() {
+        currentGalleryIndex = (currentGalleryIndex + 1) % galleryItems.length;
+        const img = galleryItems[currentGalleryIndex].querySelector('img');
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+    }
+
+    function prevImage() {
+        currentGalleryIndex = (currentGalleryIndex - 1 + galleryItems.length) % galleryItems.length;
+        const img = galleryItems[currentGalleryIndex].querySelector('img');
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+    }
+
+    if (lightbox) {
+        galleryItems.forEach((item, i) => {
+            item.addEventListener('click', () => openLightbox(i));
+        });
+
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightboxPrev.addEventListener('click', prevImage);
+        lightboxNext.addEventListener('click', nextImage);
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowRight') nextImage();
+            if (e.key === 'ArrowLeft') prevImage();
+        });
+    }
+
+    // ============================================================
+    // Scroll to Top
+    // ============================================================
+    const scrollTopBtn = document.getElementById('scroll-top');
+
+    if (scrollTopBtn) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+
 });
