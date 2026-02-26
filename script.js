@@ -79,9 +79,9 @@ document.addEventListener('DOMContentLoaded', () => {
             nav.classList.toggle('nav-open');
             const icon = mobileBtn.querySelector('i');
             if (nav.classList.contains('nav-open')) {
-                icon.classList.replace('fa-bars', 'fa-xmark');
+                icon.classList.replace('ph-list', 'ph-x');
             } else {
-                icon.classList.replace('fa-xmark', 'fa-bars');
+                icon.classList.replace('ph-x', 'ph-list');
             }
         });
 
@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
             link.addEventListener('click', () => {
                 nav.classList.remove('nav-open');
                 const icon = mobileBtn.querySelector('i');
-                icon.classList.replace('fa-xmark', 'fa-bars');
+                icon.classList.replace('ph-x', 'ph-list');
             });
         });
     }

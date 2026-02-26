@@ -30,8 +30,8 @@
     --cat-blue-icon: #2563eb;
 
     /* Typography */
-    --font-heading: 'Outfit', sans-serif;
-    --font-body: 'Inter', sans-serif;
+    --font-heading: 'Be Vietnam Pro', sans-serif;
+    --font-body: 'Be Vietnam Pro', sans-serif;
 
     /* Spacing */
     --container-width: 1200px;
@@ -646,9 +646,18 @@ img {
 }
 
 .bento-card:hover {
-    transform: translateY(-6px);
-    box-shadow: var(--shadow-lg);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 60px rgba(13, 59, 46, 0.15), 0 0 0 1px var(--clr-accent);
     border-color: transparent;
+    background: var(--clr-white);
+}
+
+.bento-card:hover .bento-icon {
+    transform: scale(1.15) rotate(-5deg);
+}
+
+.bento-card:hover .bento-title {
+    color: var(--clr-primary);
 }
 
 .bento-large {
@@ -1204,7 +1213,32 @@ img {
 /* ===================================================================
    RESPONSIVE
    =================================================================== */
+
+/* ---------- TABLET (max-width: 1024px) ---------- */
 @media (max-width: 1024px) {
+    .header {
+        padding: 14px 16px;
+    }
+
+    .header-pill {
+        padding: 8px 8px 8px 18px;
+    }
+
+    .logo {
+        font-size: 17px;
+    }
+
+    .logo-icon {
+        width: 32px;
+        height: 32px;
+        font-size: 14px;
+    }
+
+    .nav-link {
+        font-size: 13px;
+        padding: 6px 10px;
+    }
+
     .about-grid {
         grid-template-columns: 1fr;
         gap: 48px;
@@ -1240,11 +1274,41 @@ img {
     .hero-float-card {
         display: none;
     }
+
+    .section-title {
+        font-size: clamp(32px, 6vw, 48px);
+    }
 }
 
+/* ---------- MOBILE (max-width: 768px) ---------- */
 @media (max-width: 768px) {
     :root {
         --section-padding: 60px 0;
+    }
+
+    .header {
+        padding: 10px 12px;
+    }
+
+    .header.scrolled {
+        padding: 8px 12px;
+    }
+
+    .header-pill {
+        padding: 6px 6px 6px 14px;
+        border-radius: 20px;
+    }
+
+    .logo {
+        font-size: 16px;
+        gap: 8px;
+    }
+
+    .logo-icon {
+        width: 30px;
+        height: 30px;
+        font-size: 13px;
+        border-radius: 8px;
     }
 
     .nav {
@@ -1257,8 +1321,51 @@ img {
         justify-content: center;
     }
 
-    .btn-text-desktop {
-        display: none;
+    .btn-cta-header {
+        padding: 8px 16px;
+        font-size: 13px;
+    }
+
+    .hero-content {
+        padding: 110px 0 60px;
+    }
+
+    .hero-title-line {
+        font-size: clamp(32px, 10vw, 56px);
+        letter-spacing: -1px;
+    }
+
+    .hero-subtitle {
+        font-size: 15px;
+    }
+
+    .hero-info-pills {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .info-pill {
+        font-size: 13px;
+        padding: 8px 14px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .hero-badge {
+        font-size: 12px;
+        padding: 6px 14px;
+        margin-bottom: 20px;
+    }
+
+    .stats-bar {
+        padding: 40px 0;
     }
 
     .stats-container {
@@ -1271,7 +1378,24 @@ img {
     }
 
     .stat-number {
-        font-size: 36px;
+        font-size: 32px;
+    }
+
+    .stat-label {
+        font-size: 12px;
+    }
+
+    .section-title {
+        font-size: clamp(28px, 8vw, 40px);
+    }
+
+    .section-desc {
+        font-size: 15px;
+    }
+
+    .section-badge {
+        font-size: 12px;
+        padding: 6px 16px;
     }
 
     .bento-grid {
@@ -1285,11 +1409,38 @@ img {
     }
 
     .bento-wide .bento-icon {
-        margin-bottom: 20px;
+        margin-bottom: 16px;
+    }
+
+    .bento-card {
+        padding: 28px 24px;
+    }
+
+    .bento-icon {
+        width: 52px;
+        height: 52px;
+        font-size: 24px;
+        border-radius: 14px;
+    }
+
+    .bento-title {
+        font-size: 18px;
+    }
+
+    .about-image-wrapper {
+        max-height: 300px;
+    }
+
+    .about-text {
+        font-size: 15px;
     }
 
     .testimonials-grid {
         grid-template-columns: 1fr;
+    }
+
+    .testimonial-card {
+        padding: 28px 24px;
     }
 
     .contact-bento {
@@ -1305,43 +1456,111 @@ img {
         grid-column: 1;
     }
 
+    .contact-info-card {
+        padding: 24px;
+    }
+
     .footer-content {
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 32px;
+        text-align: center;
     }
 
-    .hero-content {
-        padding: 120px 0 80px;
+    .footer-contact-info p {
+        justify-content: center;
     }
 
-    .hero-title-line {
-        font-size: clamp(36px, 10vw, 60px);
+    .floating-buttons {
+        bottom: 16px;
+        right: 16px;
+        gap: 10px;
     }
 
-    .hero-info-pills {
-        flex-direction: column;
+    .float-btn {
+        width: 48px;
+        height: 48px;
+        font-size: 18px;
     }
 
-    .hero-buttons {
-        flex-direction: column;
-    }
-
-    .hero-buttons .btn {
-        width: 100%;
+    .nav.nav-open {
+        top: 65px;
+        left: 12px;
+        right: 12px;
     }
 }
 
+/* ---------- SMALL MOBILE (max-width: 480px) ---------- */
 @media (max-width: 480px) {
-    .header .btn-accent {
-        padding: 8px 12px;
+    .header {
+        padding: 8px 10px;
+    }
+
+    .header-pill {
+        padding: 5px 5px 5px 12px;
+    }
+
+    .logo {
+        font-size: 14px;
+        gap: 6px;
+    }
+
+    .logo-icon {
+        width: 28px;
+        height: 28px;
+        font-size: 12px;
+    }
+
+    .btn-cta-header {
+        padding: 7px 12px;
+        font-size: 12px;
+        gap: 5px;
+    }
+
+    .container {
+        padding: 0 16px;
+    }
+
+    .hero-content {
+        padding: 100px 0 50px;
+    }
+
+    .hero-title-line {
+        font-size: 32px;
+    }
+
+    .hero-subtitle {
+        font-size: 14px;
     }
 
     .stats-container {
         grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
     }
 
-    .hero-title-line {
-        font-size: 36px;
+    .stat-number {
+        font-size: 28px;
+    }
+
+    .section-title {
+        font-size: 28px;
+    }
+
+    .bento-card {
+        padding: 24px 20px;
+    }
+
+    .contact-cta-card {
+        padding: 28px 20px;
+    }
+
+    .contact-cta-card h3 {
+        font-size: 20px;
+    }
+
+    .nav.nav-open {
+        top: 55px;
+        left: 10px;
+        right: 10px;
     }
 }
 
